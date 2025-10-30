@@ -1,0 +1,36 @@
+{
+    "name": "Swift Development Environment",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "true",
+            "username": "vscode",
+            "uid": "1000",
+            "gid": "1000",
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "ppa": "false"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "swift.path": "/usr/bin/swift"
+            },
+            "extensions": [
+                "sswg.swift-lang",
+                "ms-vscode.test-adapter-converter",
+                "hbenl.vscode-test-explorer"
+            ]
+        }
+    },
+    "forwardPorts": [
+        8080
+    ],
+    "postCreateCommand": "swift --version",
+    "remoteUser": "vscode"
+}
